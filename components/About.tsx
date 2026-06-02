@@ -22,7 +22,7 @@ export default function About() {
               <span className="gradient-text">birlikte inşa ediyoruz</span>
             </h2>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              NovaCode Digital, Türkiye'deki işletmelere kurumsal yazılım geliştirme, yapay zeka entegrasyonu ve dijital dönüşüm hizmetleri sunan yeni nesil bir yazılım firmasıdır.
+              NovaCode Digital, Türkiye&apos;deki işletmelere kurumsal yazılım geliştirme, yapay zeka entegrasyonu ve dijital dönüşüm hizmetleri sunan yeni nesil bir yazılım firmasıdır.
             </p>
             <p className="text-gray-400 mb-8 leading-relaxed">
               İnovasyon, ölçeklenebilirlik ve akıllı otomasyona odaklanarak işletmelerin geleceğe hazır olmasını sağlıyoruz.
