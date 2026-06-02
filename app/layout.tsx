@@ -7,6 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "NovaCode Digital - AI • Yazılım • İnovasyon",
   description: "Yapay zeka destekli yazılım geliştirme, kurumsal çözümler, otomasyon sistemleri ve dijital dönüşüm hizmetleri.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
