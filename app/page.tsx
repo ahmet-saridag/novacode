@@ -9,7 +9,6 @@ import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppWidget />
     </>
   );
 }

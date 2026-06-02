@@ -32,7 +32,6 @@ export default function Footer() {
             <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">İletişim</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li><a href="mailto:info@novacodedigital.com" className="hover:text-white transition-colors">info@novacodedigital.com</a></li>
-              <li><a href="https://wa.me/905372320235" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+90 537 232 02 35</a></li>
               <li>Levent, İstanbul, Türkiye</li>
             </ul>
           </div>
