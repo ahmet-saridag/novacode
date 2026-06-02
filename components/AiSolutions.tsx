@@ -1,4 +1,6 @@
+"use client";
 import { Bot, Zap, Brain, BarChart3 } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const solutions = [
   {
@@ -28,10 +30,13 @@ const solutions = [
 ];
 
 export default function AiSolutions() {
+  const headRef = useScrollReveal<HTMLDivElement>();
+  const gridRef = useScrollReveal<HTMLDivElement>({ threshold: 0.08 });
+
   return (
     <section id="ai-cozumleri" className="py-24 section-glow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={headRef} className="reveal text-center mb-16">
           <div className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-400 border border-indigo-500/30 rounded-full px-3 py-1 mb-4">
             AI Çözümleri
           </div>
@@ -44,7 +49,7 @@ export default function AiSolutions() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div ref={gridRef} className="stagger grid sm:grid-cols-2 gap-8">
           {solutions.map((s) => (
             <div key={s.title} className="glow-border rounded-3xl bg-white/5 p-8 card-hover group relative overflow-hidden">
               <div className="absolute top-4 right-4 text-xs font-bold text-indigo-300 border border-indigo-500/30 rounded-full px-2 py-0.5">

@@ -68,6 +68,69 @@ body {
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
   }
+
+  /* ── Scroll reveal base states ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* staggered children */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .stagger.revealed > *:nth-child(1)  { opacity: 1; transform: none; transition-delay: 0.05s; }
+  .stagger.revealed > *:nth-child(2)  { opacity: 1; transform: none; transition-delay: 0.12s; }
+  .stagger.revealed > *:nth-child(3)  { opacity: 1; transform: none; transition-delay: 0.19s; }
+  .stagger.revealed > *:nth-child(4)  { opacity: 1; transform: none; transition-delay: 0.26s; }
+  .stagger.revealed > *:nth-child(5)  { opacity: 1; transform: none; transition-delay: 0.33s; }
+  .stagger.revealed > *:nth-child(6)  { opacity: 1; transform: none; transition-delay: 0.40s; }
+  .stagger.revealed > *:nth-child(7)  { opacity: 1; transform: none; transition-delay: 0.47s; }
+  .stagger.revealed > *:nth-child(8)  { opacity: 1; transform: none; transition-delay: 0.54s; }
+  .stagger.revealed > *:nth-child(9)  { opacity: 1; transform: none; transition-delay: 0.61s; }
+  .stagger.revealed > *:nth-child(n+10) { opacity: 1; transform: none; transition-delay: 0.68s; }
 }
 
 @keyframes float {
@@ -78,4 +141,41 @@ body {
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
   50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+/* ── Hero typewriter cursor ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: #8b5cf6;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Floating orbs ── */
+@keyframes orb1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.1); }
+  66%       { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes orb2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-25px, 20px) scale(1.08); }
+  75%       { transform: translate(20px, -10px) scale(0.92); }
+}
+
+.orb-1 { animation: orb1 9s ease-in-out infinite; }
+.orb-2 { animation: orb2 11s ease-in-out infinite; }
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

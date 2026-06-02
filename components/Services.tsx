@@ -1,8 +1,10 @@
+"use client";
 import {
   Bot, Code2, Smartphone, Cloud, ShieldCheck, BarChart3,
   Globe, Database, Cpu, Layers, ShoppingCart, Zap,
   Search, Server, MessageSquare, TrendingUp, Settings, Lightbulb,
 } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const services = [
   { icon: Bot, title: "AI Çözümleri & Otomasyon", desc: "İş süreçlerinizi yapay zeka ile dönüştürün." },
@@ -26,10 +28,13 @@ const services = [
 ];
 
 export default function Services() {
+  const headRef = useScrollReveal<HTMLDivElement>();
+  const gridRef = useScrollReveal<HTMLDivElement>({ threshold: 0.05 });
+
   return (
     <section id="hizmetler" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={headRef} className="reveal text-center mb-16">
           <div className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-400 border border-indigo-500/30 rounded-full px-3 py-1 mb-4">
             Hizmetler
           </div>
@@ -42,12 +47,9 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={gridRef} className="stagger grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
-            <div
-              key={s.title}
-              className="glow-border rounded-2xl bg-white/5 p-6 card-hover group"
-            >
+            <div key={s.title} className="glow-border rounded-2xl bg-white/5 p-6 card-hover group">
               <div className="w-10 h-10 rounded-xl bg-indigo-600/20 flex items-center justify-center mb-4 group-hover:bg-indigo-600/40 transition-colors">
                 <s.icon size={20} className="text-indigo-400" />
               </div>

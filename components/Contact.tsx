@@ -1,6 +1,7 @@
 "use client";
 import { Mail, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -22,6 +23,9 @@ const contactItems = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
+  const headRef  = useScrollReveal<HTMLDivElement>();
+  const leftRef  = useScrollReveal<HTMLDivElement>();
+  const rightRef = useScrollReveal<HTMLDivElement>();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -53,7 +57,7 @@ export default function Contact() {
   return (
     <section id="iletisim" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={headRef} className="reveal text-center mb-16">
           <div className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-400 border border-indigo-500/30 rounded-full px-3 py-1 mb-4">
             İletişim
           </div>
@@ -68,7 +72,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Info */}
-          <div className="space-y-8">
+          <div ref={leftRef} className="reveal-left space-y-8">
             <div>
               <h3 className="text-xl font-bold text-white mb-6">İletişim Bilgileri</h3>
               <div className="space-y-5">
@@ -107,7 +111,7 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <div className="glow-border rounded-2xl bg-white/5 p-8">
+          <div ref={rightRef} className="reveal-right glow-border rounded-2xl bg-white/5 p-8">
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center h-full py-12 text-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center">

@@ -1,18 +1,24 @@
+"use client";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const steps = [
-  { num: "01", title: "Keşif", desc: "İş hedeflerinizi ve gereksinimlerinizi derinlemesine analiz ediyoruz." },
-  { num: "02", title: "Planlama", desc: "Teknik mimari ve proje yol haritasını birlikte oluşturuyoruz." },
-  { num: "03", title: "Tasarım", desc: "Kullanıcı deneyimini ön planda tutan tasarımlar hazırlıyoruz." },
+  { num: "01", title: "Keşif",      desc: "İş hedeflerinizi ve gereksinimlerinizi derinlemesine analiz ediyoruz." },
+  { num: "02", title: "Planlama",   desc: "Teknik mimari ve proje yol haritasını birlikte oluşturuyoruz." },
+  { num: "03", title: "Tasarım",    desc: "Kullanıcı deneyimini ön planda tutan tasarımlar hazırlıyoruz." },
   { num: "04", title: "Geliştirme", desc: "Agile metodoloji ile hızlı ve kaliteli kod yazıyoruz." },
-  { num: "05", title: "Test", desc: "Kapsamlı QA süreçleriyle hataları sıfıra indiriyoruz." },
-  { num: "06", title: "Yayın", desc: "Güvenli ve kesintisiz deployment ile sistemi canlıya alıyoruz." },
-  { num: "07", title: "Optimizasyon", desc: "Sürekli izleme ve iyileştirme ile performansı maksimuma taşıyoruz." },
+  { num: "05", title: "Test",       desc: "Kapsamlı QA süreçleriyle hataları sıfıra indiriyoruz." },
+  { num: "06", title: "Yayın",      desc: "Güvenli ve kesintisiz deployment ile sistemi canlıya alıyoruz." },
+  { num: "07", title: "Optimizasyon",desc:"Sürekli izleme ve iyileştirme ile performansı maksimuma taşıyoruz." },
 ];
 
 export default function Process() {
+  const headRef = useScrollReveal<HTMLDivElement>();
+  const stepsRef = useScrollReveal<HTMLDivElement>({ threshold: 0.06 });
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={headRef} className="reveal text-center mb-16">
           <div className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-400 border border-indigo-500/30 rounded-full px-3 py-1 mb-4">
             Süreç
           </div>
@@ -25,10 +31,8 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="relative">
-          {/* Connecting line */}
+        <div ref={stepsRef} className="stagger relative">
           <div className="absolute top-8 left-8 right-8 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent hidden lg:block" />
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-7 gap-6">
             {steps.map((step) => (
               <div key={step.num} className="relative text-center group">
