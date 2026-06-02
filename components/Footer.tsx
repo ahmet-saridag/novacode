@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <div className="text-2xl font-bold gradient-text mb-4">NNovaCode</div>
+            <div className="text-2xl font-bold gradient-text mb-4">NovaCode</div>
             <p className="text-sm text-gray-400 leading-relaxed">
               Yapay zeka ve yazılımın kesişiminde, geleceğin dijital çözümlerini bugünden inşa ediyoruz.
             </p>
